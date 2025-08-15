@@ -1,10 +1,16 @@
 
 type Movie = {
+    id: number;
     title: string;
     poster: string;
+    releaseDate: string;
 }
 
-function MovieCard({title, poster}:Movie){
+type MovieProps = {
+    movie: Movie;
+}
+
+function MovieCard({movie}:MovieProps){
     const handleOnClick = () => {
         alert("Clicked");
     }
@@ -12,14 +18,20 @@ function MovieCard({title, poster}:Movie){
     <>
         <div className="movie-card">
         <div className="movie-poster">
-            <img src={poster} alt={title}/>
+            <img src={movie.poster} alt={movie.title}/>
                 <div className="movie-overlay">
                     <button className="favorite-btn" onClick={handleOnClick}>
                         🤍
                     </button>
                 </div>
             </div>
+            <div className="movie-info">
+                <h3>{movie.title}</h3>
+                <p>{movie.releaseDate}</p>
+            </div>
         </div>
     </>
     )
 }
+
+export default MovieCard;

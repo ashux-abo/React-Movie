@@ -1,12 +1,17 @@
-import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Home from './pages/Home'
+import Favorites from './pages/Favorites'
+
 function App() {
   return (
     <>
-    <div>
-      <h2>Browse for Movies</h2>
-    </div>
+      <main className='main-content'>
+        <Routes>
+          <Route path='/' element={<Home/>} />
+          <Route path='/favorites' element={<Favorites/>} />
+        </Routes>
+      </main>
     </>
   )
 }

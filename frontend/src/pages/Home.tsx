@@ -1,21 +1,48 @@
 import MovieCard from "../components/MovieCard"
+import { useState } from "react";
 
-function Home(){
-    const movies =[
-        {id:1, title:'Demon Slayer', releaseDate:'2025-08-22', poster:''},
-        {id:2, title:'Minecraft', releaseDate:'2025-08-22', poster:''},
-        {id:3, title:'John Wick', releaseDate:'2025-08-22', poster:''},
-        {id:4, title:'Fantastic 4', releaseDate:'2025-08-22', poster:''},
-        {id:5, title:'Superman', releaseDate:'2025-08-22', poster:''},
+function Home() {
+    const movies = [
+        { id: 1, title: 'Demon Slayer', releaseDate: '2025-08-22', poster: '' },
+        { id: 2, title: 'Minecraft', releaseDate: '2025-08-22', poster: '' },
+        { id: 3, title: 'John Wick', releaseDate: '2025-08-22', poster: '' },
+        { id: 4, title: 'Fantastic 4', releaseDate: '2025-08-22', poster: '' },
+        { id: 5, title: 'Superman', releaseDate: '2025-08-22', poster: '' },
     ]
-    return(
-        <div className="home">
-            <div className="movie-grid">
-                {movies.map((movie) =>(
-                    <MovieCard movie={movie} key={movie.id}/>
-                ))}
+
+    const [searchQuery, setSearchQuery] = useState("");
+
+    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        alert(searchQuery);
+    }
+
+    const filteredMovies = movies.filter(movie =>{
+        return movie.title.toLowerCase().startsWith(searchQuery.toLowerCase().trim())
+    })
+
+    return (
+        <>
+            <h2>Browse for Movies</h2>
+            <form onSubmit={handleSearch} className='search-form'>
+                <input
+                    type='text'
+                    placeholder='Search for movies...'
+                    className='search-input'
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                />
+                <button type='submit' className='search-btn'>Search</button>
+            </form>
+
+            <div className="home">
+                <div className="movie-grid">
+                    {movies.map((movie) => (
+                         movie.title.toLowerCase().startsWith(searchQuery.toLowerCase().trim()) && <MovieCard movie={movie} key={movie.id} />
+                    ))}
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 

@@ -1,0 +1,33 @@
+.movie-card{
+    width: 250px;
+    height: 300px;
+    padding: 25px;
+    background-color: rgb(51, 61, 70);
+    border-radius: 10px;
+}
+.movie-poster{
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.favorite-btn{
+    border-width: 1px;
+    border-radius: 15px;
+    border-color: rgb(49, 38, 38);
+    margin: 5px;
+}
+.movie-info{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    align-content: center;
+}
+.movie-info h3{
+    font-size: 1.2rem;
+    margin: 0;
+}
+.movie-info p{
+    font-size: 0.9rem;
+}

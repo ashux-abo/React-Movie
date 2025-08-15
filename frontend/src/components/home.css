@@ -1,0 +1,27 @@
+.search-form{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 25px;
+}
+.search-input{
+    width: 300px;
+    max-width: 100%;
+    padding: 5px;
+    border-radius: 10px;
+    background: white;
+    color: black;
+}
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.movie-grid{
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    align-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}

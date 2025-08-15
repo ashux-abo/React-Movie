@@ -1,13 +1,14 @@
 import MovieCard from "../components/MovieCard"
 import { useState } from "react";
+import '../components/home.css'
 
 function Home() {
     const movies = [
-        { id: 1, title: 'Demon Slayer', releaseDate: '2025-08-22', poster: '' },
-        { id: 2, title: 'Minecraft', releaseDate: '2025-08-22', poster: '' },
-        { id: 3, title: 'John Wick', releaseDate: '2025-08-22', poster: '' },
-        { id: 4, title: 'Fantastic 4', releaseDate: '2025-08-22', poster: '' },
-        { id: 5, title: 'Superman', releaseDate: '2025-08-22', poster: '' },
+        { id: 1, title: 'Demon Slayer', releaseDate: '2025-08-22', poster: './babi.jpg' },
+        { id: 2, title: 'Minecraft', releaseDate: '2025-08-22', poster: './babi.jpg' },
+        { id: 3, title: 'John Wick', releaseDate: '2025-08-22', poster: './babi.jpg' },
+        { id: 4, title: 'Fantastic 4', releaseDate: '2025-08-22', poster: './babi.jpg' },
+        { id: 5, title: 'Superman', releaseDate: '2025-08-22', poster: './babi.jpg' },
     ]
 
     const [searchQuery, setSearchQuery] = useState("");
@@ -23,7 +24,7 @@ function Home() {
 
     return (
         <>
-            <h2>Browse for Movies</h2>
+            <h1>Browse for Movies</h1>
             <form onSubmit={handleSearch} className='search-form'>
                 <input
                     type='text'

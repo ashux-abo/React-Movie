@@ -1,4 +1,4 @@
-# React-Movie
+# MovieLens
 
 A movie review platform built with React and TypeScript.
 

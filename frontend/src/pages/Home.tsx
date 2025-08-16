@@ -1,6 +1,8 @@
 import MovieCard from "../components/MovieCard"
 import { useState } from "react";
 import '../components/home.css'
+import CustomButton from '../components/CustomButton'
+import { useNavigate } from "react-router-dom";
 
 function Home() {
     const movies = [
@@ -11,6 +13,7 @@ function Home() {
         { id: 5, title: 'Superman', releaseDate: '2025-08-22', poster: './babi.jpg' },
     ]
 
+    const navigate = useNavigate();
     const [searchQuery, setSearchQuery] = useState("");
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -18,12 +21,18 @@ function Home() {
         alert(searchQuery);
     }
 
-    const filteredMovies = movies.filter(movie =>{
-        return movie.title.toLowerCase().startsWith(searchQuery.toLowerCase().trim())
-    })
+    const navigateFavorites = () =>{
+        navigate('./favorites')
+    }
+
+
 
     return (
         <>
+            <div className="navbar">
+                <CustomButton title="Home"/>
+                <CustomButton title="Favorites" onPress={navigateFavorites}/>
+            </div>
             <h1>Browse for Movies</h1>
             <form onSubmit={handleSearch} className='search-form'>
                 <input

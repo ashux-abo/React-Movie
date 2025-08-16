@@ -1,4 +1,6 @@
 import React from 'react'
+import '../components/navbar.css'
+
 type NavbarProps = {
     searchQuery: string;
     setSearchQuery: (query: string) => void;
@@ -29,6 +31,8 @@ const Navbar = ({searchQuery, setSearchQuery }:NavbarProps) => {
                 />
                 <button type='submit' className='search-btn'>Search</button>
             </form>
+
+            <img src="" alt="" className='toggle-icon'/>
         </div>
     )
 }

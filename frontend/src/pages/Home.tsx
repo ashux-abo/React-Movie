@@ -1,7 +1,6 @@
 import MovieCard from "../components/MovieCard"
 import { useState } from "react";
 import '../components/home.css'
-import CustomButton from '../components/CustomButton'
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
@@ -17,9 +16,6 @@ function Home() {
     ]
 
     const navigate = useNavigate();
-    const navigateFavorites = () => {
-        navigate('./favorites')
-    }
 
     return (
         <>

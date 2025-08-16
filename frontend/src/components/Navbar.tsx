@@ -1,5 +1,9 @@
 import React from 'react'
 import '../components/navbar.css'
+import toggle_light from '../assets/day.png'
+import toggle_dark from '../assets/night.png'
+import babi from '../assets/babi.jpg'
+
 
 type NavbarProps = {
     searchQuery: string;
@@ -14,8 +18,7 @@ const Navbar = ({searchQuery, setSearchQuery }:NavbarProps) => {
     return (
         <div className='navbar'>
 
-            <img src="" alt="" className='logo' />
-            <h1>MovieLens </h1>
+            <img src={babi} alt="" className='logo' />
             <ul>
                 <li>Home</li>
                 <li>Favorites</li>
@@ -32,7 +35,7 @@ const Navbar = ({searchQuery, setSearchQuery }:NavbarProps) => {
                 <button type='submit' className='search-btn'>Search</button>
             </form>
 
-            <img src="" alt="" className='toggle-icon'/>
+            <img src={toggle_dark} alt="" className='toggle-icon'/>
         </div>
     )
 }

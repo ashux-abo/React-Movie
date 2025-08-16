@@ -4,9 +4,13 @@ import '../components/home.css'
 import { useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
-function Home() {
-    const [searchQuery, setSearchQuery] = useState("");
+type HomeProps ={
+    theme: string;
+    setTheme: (query: string) => void;
+}
 
+function Home({theme, setTheme}:HomeProps) {
+    const [searchQuery, setSearchQuery] = useState("");
     const movies = [
         { id: 1, title: 'Demon Slayer', releaseDate: '2025-08-22', poster: './babi.jpg' },
         { id: 2, title: 'Minecraft', releaseDate: '2025-08-22', poster: './babi.jpg' },
@@ -19,7 +23,7 @@ function Home() {
 
     return (
         <>
-            <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
+            <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery} theme={theme} setTheme={setTheme}/>
             <h1>Browse for Movies</h1>
 
             <div className="home">

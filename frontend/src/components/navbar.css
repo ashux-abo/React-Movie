@@ -1,23 +1,28 @@
 .search-form{
     display: flex;
-    justify-content: center;
-    align-content: center;
-    padding: 25px;
+    align-items: center;
+    padding: 10px 20px;
+    background: #283044;
+    border-radius: 50px;
 }
 .search-input{
-    width: 300px;
-    max-width: 100%;
-    padding: 5px;
-    border-radius: 10px;
-    background: white;
-    color: black;
+    padding: 6px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: #EBF5EE;
+    font-size: 18px;
+    max-width: 200px;
+}
+.search-form ::placeholder{
+    color: #9c9c9c;
 }
 .navbar{
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: #fff;
+    background: #EBF5EE;
     padding: 15px 7%;
 }
 .logo{
@@ -39,4 +44,8 @@ ul li{
     width: 50px;
     cursor: pointer;
     margin-left: 40px;
+}
+.search-form img{
+    width: 35px;
+    cursor: pointer;
 }

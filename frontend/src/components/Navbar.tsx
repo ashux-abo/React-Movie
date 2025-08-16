@@ -3,16 +3,28 @@ import '../components/navbar.css'
 import toggle_light from '../assets/day.png'
 import toggle_dark from '../assets/night.png'
 import babi from '../assets/babi.jpg'
+import search_light from '../assets/search-w.png'
+import search_dark from '../assets/search-b.png'
 
 
 type NavbarProps = {
+    theme: string;
+    setTheme: (query: string) => void;
     searchQuery: string;
     setSearchQuery: (query: string) => void;
 }
 
-const Navbar = ({searchQuery, setSearchQuery }:NavbarProps) => {
+const Navbar = ({searchQuery, setSearchQuery, theme, setTheme }:NavbarProps) => {
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault
+        e.preventDefault();
+        alert(searchQuery);
+    }
+
+    const toggleMode = () =>{
+        theme == 'light' ? setTheme('dark') : setTheme('light');
+    }
+
+    const handleSearchClick = () =>{
         alert(searchQuery);
     }
     return (
@@ -32,10 +44,10 @@ const Navbar = ({searchQuery, setSearchQuery }:NavbarProps) => {
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <button type='submit' className='search-btn'>Search</button>
+                <img src={theme == 'light' ? search_dark : search_light} alt="Search" className='toggle-icon' onClick={handleSearchClick}/>
             </form>
 
-            <img src={toggle_dark} alt="" className='toggle-icon'/>
+            <img src={toggle_dark} alt="" className='toggle-icon' onClick={()=>{toggleMode}}/>
         </div>
     )
 }

@@ -3,8 +3,11 @@ import { useState } from "react";
 import '../components/home.css'
 import CustomButton from '../components/CustomButton'
 import { useNavigate } from "react-router-dom";
+import Navbar from "../components/Navbar";
 
 function Home() {
+    const [searchQuery, setSearchQuery] = useState("");
+
     const movies = [
         { id: 1, title: 'Demon Slayer', releaseDate: '2025-08-22', poster: './babi.jpg' },
         { id: 2, title: 'Minecraft', releaseDate: '2025-08-22', poster: './babi.jpg' },
@@ -14,41 +17,19 @@ function Home() {
     ]
 
     const navigate = useNavigate();
-    const [searchQuery, setSearchQuery] = useState("");
-
-    const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        alert(searchQuery);
-    }
-
-    const navigateFavorites = () =>{
+    const navigateFavorites = () => {
         navigate('./favorites')
     }
 
-
-
     return (
         <>
-            <div className="navbar">
-                <CustomButton title="Home"/>
-                <CustomButton title="Favorites" onPress={navigateFavorites}/>
-            </div>
+            <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
             <h1>Browse for Movies</h1>
-            <form onSubmit={handleSearch} className='search-form'>
-                <input
-                    type='text'
-                    placeholder='Search for movies...'
-                    className='search-input'
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                />
-                <button type='submit' className='search-btn'>Search</button>
-            </form>
 
             <div className="home">
                 <div className="movie-grid">
                     {movies.map((movie) => (
-                         movie.title.toLowerCase().startsWith(searchQuery.toLowerCase().trim()) && <MovieCard movie={movie} key={movie.id} />
+                        movie.title.toLowerCase().startsWith(searchQuery.toLowerCase().trim()) && <MovieCard movie={movie} key={movie.id} />
                     ))}
                 </div>
             </div>
